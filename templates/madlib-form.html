@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Madlib Form{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <form id="madlib-form" class="madlib-form" action="/madlib-answer">
+                    {% for prompt in prompts %}
+                    <label class="form-label">{{prompt}}</label>
+                    <input class="form-control" type="text" name="{{prompt}}"  required minlength="3">
+                    {% endfor %}
+                    <button id="submit" class="btn btn-warning mt-5 w-100">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
